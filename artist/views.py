@@ -102,9 +102,12 @@ class LoginView(APIView):
         user= authenticate(request, email=email, password=password)
         
         if user is not None:
-            token, _ = Token.objects.get_or_create(user=user)
-            login(request, user)
-            return Response({'token' : token.key, 'user_id' : user.id})
+            if user.is_verified== True:
+                token, _ = Token.objects.get_or_create(user=user)
+                login(request, user)
+                return Response({'token' : token.key, 'user_id' : user.id})
+            else:
+                return Response('Please click on the link sent in your email')
         
         return Response('Wrong info. Try again')
     
