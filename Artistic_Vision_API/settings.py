@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os 
 import environ
 env = environ.Env()
@@ -120,6 +121,13 @@ DATABASES = {
        'HOST': 'localhost',
        'PORT': '5432',
    }
+}
+
+DATABASES = {
+    'default': dj_database_url.parse(
+        'postgres://canvas_bliss_database_694d_user:jdoHACmowSryOCWXY7q8oiQCtjhpX6VW@dpg-cp6cbiu3e1ms73a8jgcg-a.oregon-postgres.render.com/canvas_bliss_database_694d',
+        
+    )
 }
 
 
