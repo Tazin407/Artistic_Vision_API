@@ -33,9 +33,14 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = True
 
 CSRF_ORIGIN_ALLOW_ALL= True
+CSRF_TRUSTED_ORIGINS= ['https://artistic-vision-api.onrender.com','https://*.127.0.0.1']
+
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
-ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_WHITELIST = [
+    'http://127.0.0.1:5500',  # Add your origin here
+    
+]
 
 ALLOWED_HOSTS = ["*"]
 
