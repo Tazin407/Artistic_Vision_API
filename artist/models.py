@@ -32,11 +32,11 @@ class Artist(AbstractUser):
     username=None
     
     email= models.EmailField(_('Email Address'), unique=True)
-    password= models.CharField(max_length=30)
+    password= models.CharField(max_length=150)
     is_verified= models.BooleanField(default=False)
-    username= models.CharField(max_length= 20, blank=True, null= True)
-    first_name= models.CharField(max_length=30)
-    last_name= models.CharField(max_length=30)
+    username= models.CharField(max_length= 150, blank=True, null= True)
+    first_name= models.CharField(max_length=150)
+    last_name= models.CharField(max_length=150)
     
     USERNAME_FIELD= 'email'
     
