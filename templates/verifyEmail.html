@@ -1,0 +1,9 @@
+<p>Hello {{user.username}} </p><br>
+<p>Thank you for creating account in our platform. Click this link below and be the part of the community today. </p>
+<a href="{{ request.scheme }}://{{ domain }}{% url 'activate' uidb64=uid token=token %}">
+    Verify Email
+</a>
+
+<p>Wishing you a very good luck for your future masterpieces</p>
+
+<p>Canvas Bliss</p>
