@@ -103,6 +103,7 @@ class LoginView(APIView):
         
         if user is not None:
             if user.is_verified== True:
+                print("verified")
                 token, _ = Token.objects.get_or_create(user=user)
                 login(request, user)
                 return Response({'token' : token.key, 'user_id' : user.id})
