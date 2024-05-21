@@ -3,6 +3,7 @@ from django.shortcuts import render,redirect
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .import serializers
 from .import models
 from rest_framework.response import Response
@@ -13,7 +14,8 @@ class Artworks(ModelViewSet):
     serializer_class= serializers.ShowArts
     queryset= models.Art.objects.all()
     
-class Like(ModelViewSet):
+    
+class Like(ModelViewSet, LoginRequiredMixin):
     serializer_class= serializers.LikeSerializer
     queryset= models.Like.objects.all()
     
