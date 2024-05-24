@@ -40,6 +40,7 @@ class Like(ModelViewSet, LoginRequiredMixin):
                 existingLike= models.Like.objects.get(art=art, artist=user)
                 existingLike.delete()
                 art.likes-=1
+                art.save()
                 # existingLike.save()
                 
                 return Response ("Like Removed")
