@@ -14,6 +14,16 @@ class Artworks(ModelViewSet):
     serializer_class= serializers.ShowArts
     queryset= models.Art.objects.all()
     
+    def get_queryset(self):
+        queryset= super().get_queryset()
+        artist= self.request.query_params.get('artist')
+        if artist:
+            queryset= queryset.filter(artist= artist)
+        
+        return queryset
+            
+    
+    
     
 class Like(ModelViewSet, LoginRequiredMixin):
     serializer_class= serializers.LikeSerializer
