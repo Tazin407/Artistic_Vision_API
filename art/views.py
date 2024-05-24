@@ -37,11 +37,13 @@ class Like(ModelViewSet, LoginRequiredMixin):
             art= serializer.validated_data.get("art")
             
             try:
-                existingLike= self.queryset.get(art=art, artist=user)
+                existingLike= models.Like.objects.get(art=art, artist=user)
                 existingLike.delete()
+                # existingLike.save()
+                
                 return Response ("Like Removed")
             
-            except self.queryset.model.DoesNotExist:
+            except models.Like.DoesNotExist:
                 newLike= serializer.save()
                 newLike.save()
                 art.likes+=1
