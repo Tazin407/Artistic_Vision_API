@@ -7,7 +7,7 @@ class ShowArts(serializers.ModelSerializer):
     artist_name = serializers.CharField(source='artist.name', read_only=True)
     class Meta:
         model= models.Art
-        fields= fields = ['id', 'title', 'image', 'description', 'artist', 'artist_name']
+        fields= fields = ['id', 'title', 'image', 'description','likes', 'artist', 'artist_name']
         
 class LikeSerializer(serializers.ModelSerializer):
     class Meta:
