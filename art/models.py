@@ -6,7 +6,7 @@ class Art(models.Model):
     artist= models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='art')
     title= models.CharField(max_length=30)
     image= models.ImageField(upload_to='art/media')
-    desciption= models.TextField()
+    description= models.TextField()
     creation_date= models.DateField(auto_now_add=True)
     likes= models.IntegerField(default=0)
     

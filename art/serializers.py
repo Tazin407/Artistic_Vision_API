@@ -3,9 +3,11 @@ from django.contrib.auth import authenticate, get_user_model, get_user
 from .import models
 
 class ShowArts(serializers.ModelSerializer):
+    image = serializers.ImageField(use_url=True)
+    artist_name = serializers.CharField(source='artist.name', read_only=True)
     class Meta:
         model= models.Art
-        fields= '__all__'
+        fields= fields = ['id', 'title', 'image', 'description', 'artist', 'artist_name']
         
 class LikeSerializer(serializers.ModelSerializer):
     class Meta:

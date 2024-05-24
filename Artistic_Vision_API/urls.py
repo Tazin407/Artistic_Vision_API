@@ -25,7 +25,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include("artist.urls")),
-    # path('artworks', include("art.urls")),
+    path('artworks', include("art.urls")),
     # path('', Artists.as_view({'get':'list'}))
 ]
 if settings.DEBUG:
