@@ -36,7 +36,7 @@ DEBUG = True
 CSRF_ORIGIN_ALLOW_ALL= True
 CSRF_TRUSTED_ORIGINS= ['https://artistic-vision-api.onrender.com','https://*.127.0.0.1','http://127.0.0.1:8000/']
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
     'http://127.0.0.1:5500',  # Add your origin here
